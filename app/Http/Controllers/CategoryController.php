@@ -52,7 +52,6 @@ class CategoryController extends Controller
         ]);
 
         Session::flash('success', 'Category created successfully');
-
         return redirect()->back();
 
     }
