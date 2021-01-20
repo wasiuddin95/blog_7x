@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="{{ asset('admin') }}/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    {{-- Toaster Css --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -152,7 +154,7 @@
             <a href="index3.html" class="brand-link">
                 <img src="{{ asset('admin') }}/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                     style="opacity: .8">
-                <span class="brand-text font-weight-light">AdminLTE 3</span>
+                <span class="brand-text font-weight-light">Blog Site</span>
             </a>
 
             <!-- Sidebar -->
@@ -163,7 +165,7 @@
                         <img src="{{ asset('admin') }}/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Alexander Pierce</a>
+                        <a href="#" class="d-block">{{Auth::user()->name}}</a>
                     </div>
                 </div>
 
@@ -196,13 +198,22 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
-                                <p>
-                                    Simple Link
-                                    <span class="right badge badge-danger">New</span>
-                                </p>
+                        <li class="nav-item mt-auto">
+                            <a href="{{ route('category.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-tags"></i>
+                            <p>
+                                Categories
+                                <span class="right badge badge-danger">New</span>
+                            </p>
+                            </a>
+                        </li>
+                        </li>
+                        <li class="nav-item mt-auto bg-danger">
+                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link">
+                            <i class="nav-icon fas fa-sign-out-alt"></i>
+                            <p>
+                                Logout
+                            </p>
                             </a>
                         </li>
                     </ul>
@@ -249,6 +260,15 @@
     <script src="{{ asset('admin') }}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('admin') }}/js/adminlte.min.js"></script>
+    {{-- Toastr Js --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <script>
+        @if(Session::has('success'))
+          toastr.success("{{ Session::get('success') }}");
+        @endif
+    </script>
+
 </body>
 
 </html>
