@@ -45,6 +45,7 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @if($categories->count())
                                 @foreach ($categories as $category)
                                     
                                 <tr>
@@ -66,6 +67,15 @@
                                 </tr>
 
                                 @endforeach
+
+                                @else
+                                    <tr>
+                                        <td colspan="5">
+                                            <h5 class="text-center">No Category Found!</h5>
+                                        </td>
+                                    </tr>
+
+                                @endif
                             </tbody>
                         </table>
                     </div>
