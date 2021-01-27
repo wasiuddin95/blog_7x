@@ -16,6 +16,7 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     {{-- Toaster Css --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    @yield('style')
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -216,6 +217,15 @@
                             </p>
                             </a>
                         </li>
+                        <li class="nav-item mt-auto">
+                            <a href="{{ route('post.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-pen-square"></i>
+                            <p>
+                                Post
+                                <span class="right badge badge-danger">New</span>
+                            </p>
+                            </a>
+                        </li>
                         <li class="nav-item mt-auto bg-danger">
                             <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link">
                             <i class="nav-icon fas fa-sign-out-alt"></i>
@@ -268,13 +278,22 @@
     <script src="{{ asset('admin') }}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('admin') }}/js/adminlte.min.js"></script>
+    <!-- Custom file Js -->
+    <script src="{{ asset('admin') }}/js/bs-custom-file-input.min.js"></script>
     {{-- Toastr Js --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    @yield('script')
 
     <script>
         @if(Session::has('success'))
           toastr.success("{{ Session::get('success') }}");
         @endif
+
+        $(document).ready(function () {
+            bsCustomFileInput.init()
+        })
+
     </script>
 
 </body>
