@@ -228,10 +228,12 @@
                         </li>
                         <li class="nav-item mt-auto bg-danger">
                             <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link">
+                                {{ __('Logout') }}
                             <i class="nav-icon fas fa-sign-out-alt"></i>
-                            <p>
-                                Logout
-                            </p>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                                <p>Logout</p>
+                            </form>
                             </a>
                         </li>
                     </ul>
