@@ -226,7 +226,7 @@
                             </p>
                             </a>
                         </li>
-                        <li class="nav-item mt-auto bg-danger">
+                        <li class="nav-item mt-auto">
                             <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link">
                                 {{ __('Logout') }}
                             <i class="nav-icon fas fa-sign-out-alt"></i>
@@ -234,6 +234,11 @@
                                 @csrf
                                 <p>Logout</p>
                             </form>
+                            </a>
+                        </li>
+                        <li class="text-center mt-5">
+                            <a href="{{ route('website') }}" target="_blank" class="btn btn-primary text-white">
+                                <p class="mb-0">View Website</p>
                             </a>
                         </li>
                     </ul>
