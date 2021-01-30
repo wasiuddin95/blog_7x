@@ -90,6 +90,7 @@
                                 @endif
                             </tbody>
                         </table>
+                        {{ $posts->links() }}
                     </div>
                     <!-- /.card-body -->
                 </div>

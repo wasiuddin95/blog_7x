@@ -57,7 +57,7 @@
                                         <form action="{{ route('tag.destroy', [$tag->id]) }}" class="mr-1" method="POST">
                                             @method('DELETE')
                                             @csrf
-                                            <button type="submit" class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i> Delete</button>
+                                            <button id="delete" type="submit" class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i> Delete</button>
                                         </form>
                                     </td>
                                 </tr>
@@ -74,6 +74,7 @@
                                 @endif
                             </tbody>
                         </table>
+                        {{ $tags->links() }}
                     </div>
                     <!-- /.card-body -->
                 </div>
@@ -81,5 +82,7 @@
         </div>
     </div>
 </div>
+
+  
 
 @endsection
