@@ -227,6 +227,15 @@
                             </a>
                         </li>
                         <li class="nav-item mt-auto">
+                            <a href="{{ route('user.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-users"></i>
+                            <p>
+                                Users
+                                <span class="right badge badge-danger">New</span>
+                            </p>
+                            </a>
+                        </li>
+                        <li class="nav-item mt-auto">
                             <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link">
                                 {{ __('Logout') }}
                             <i class="nav-icon fas fa-sign-out-alt"></i>

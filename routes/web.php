@@ -26,6 +26,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     
     Route::resource('post', 'PostController');
 
+    // User Route
+    Route::resource('user', 'UserController');
+
 });
 
 // Route::get('/test', function () {
