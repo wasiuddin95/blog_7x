@@ -60,17 +60,7 @@ class UserController extends Controller
             $user->email = $request->email;
             $user->password = bcrypt($request->password);
             $user->description = $request->description;
-            // $user->image = $request->image;
             $user->slug = Str::slug($request->name, '-');
-
-            if ($request->hasFile('image')) {
-                $image = $request->image;
-                unlink(public_path($user->image));
-                $image_new_name = time() . '.' . $image->getClientOriginalExtension();
-                $image->move('storage/profile/', $image_new_name);
-                $user->image = '/storage/profile/' . $image_new_name;
-                
-            }
 
             $user->save();
 
@@ -86,5 +76,51 @@ class UserController extends Controller
         }
         return redirect()->back();
     }
+
+    public function profile()
+    {
+        $user = auth()->user();
+        
+        return view('admin.user.profile', compact('user'));
+    }
+
+    public function profile_update(Request $request)
+    {
+        $user = auth()->user();
+
+        $this->validate($request, [
+            'name' => 'required|string|max:50',
+            'email' => "required|email|unique:users,email, $user->id",
+            'password' => 'sometimes|nullable|min:8',
+            'image' => 'sometimes|nullable|image|max:2048',
+        ]);
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->description = $request->description;
+        // $user->image = $request->image;
+        $user->slug = Str::slug($request->name, '-');
+
+        if ($request->has('password') && $request->password !== null) {
+            $user->password = bcrypt($request->password);
+        }
+
+        if ($request->hasFile('image')) {
+            $image = $request->image;
+            unlink(public_path($user->image));
+            $image_new_name = time() . '.' . $image->getClientOriginalExtension();
+            $image->move('storage/profile/', $image_new_name);
+            $user->image = '/storage/profile/' . $image_new_name;
+            
+        }
+
+        $user->save();
+
+        Session::flash('success', 'User information updated successfully');
+        return redirect()->back();
+
+    }
+
+
 
 }

@@ -235,6 +235,13 @@
                             </p>
                             </a>
                         </li>
+                        <li class="nav-header">My Account</li>
+                        <li class="nav-item mt-auto">
+                            <a href="{{ route('user.profile') }}" class="nav-link">
+                            <i class="nav-icon far fa-user"></i>
+                                <p>My Profile</p>
+                            </a>
+                        </li>
                         <li class="nav-item mt-auto">
                             <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link">
                                 {{ __('Logout') }}
