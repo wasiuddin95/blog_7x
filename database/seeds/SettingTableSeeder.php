@@ -11,6 +11,9 @@ class SettingTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        App\Setting::create([
+            'name' => 'NewsPortal.com',
+            'copyright' => 'Copyright © 2021 All rights reserved',
+        ]);
     }
 }
