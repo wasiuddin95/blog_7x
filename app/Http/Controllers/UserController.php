@@ -107,7 +107,9 @@ class UserController extends Controller
 
         if ($request->hasFile('image')) {
             $image = $request->image;
-            unlink(public_path($user->image));
+            if ($user->image) {
+                unlink(public_path($user->image));
+            }
             $image_new_name = time() . '.' . $image->getClientOriginalExtension();
             $image->move('storage/profile/', $image_new_name);
             $user->image = '/storage/profile/' . $image_new_name;
