@@ -60,14 +60,16 @@
             @foreach ($recentPosts as $post)
             <div class="col-lg-4 mb-4">
                 <div class="entry2">
-                    <a href="{{ route('website.post', ['slug' => $post->slug]) }}"><img src="{{ $post->image }}" alt="Image" class="img-fluid rounded"></a>
+                    <a href="{{ route('website.post', ['slug' => $post->slug]) }}"><img src="{{ $post->image }}"
+                            alt="Image" class="img-fluid rounded"></a>
                     <div class="excerpt">
                         <span class="post-category text-white bg-secondary mb-3">{{ $post->category->name }}</span>
 
                         <h2><a href="{{ route('website.post', ['slug' => $post->slug]) }}">{{ $post->title }}</a></h2>
                         <div class="post-meta align-items-center text-left clearfix">
                             <figure class="author-figure mb-0 mr-3 float-left">
-                                <img src="@if($post->user->image) {{ asset($post->user->image) }} @else {{ asset('website/images/user.jpg') }} @endif" alt="Image" class="img-fluid">
+                                <img src="@if($post->user->image) {{ asset($post->user->image) }} @else {{ asset('website/images/user.jpg') }} @endif"
+                                    alt="Image" class="img-fluid">
                             </figure>
                             <span class="d-inline-block mt-1">By <a href="#">{{ $post->user->name }}</a></span>
                             <span>&nbsp;-&nbsp; {{ $post->created_at->format('M d, Y') }}</span>
@@ -78,7 +80,7 @@
                         <p><a href="{{ route('website.post', ['slug' => $post->slug]) }}">Read More</a></p>
                     </div>
                 </div>
-            </div>    
+            </div>
             @endforeach
         </div>
         <div class="row text-center pt-5 border-top">
@@ -96,7 +98,6 @@
         </div>
     </div>
 </div>
-
 <div class="site-section bg-light">
     <div class="container">
 
@@ -118,24 +119,26 @@
             <div class="col-md-7">
 
                 @foreach ($lastFooterPost as $post)
-                <a href="{{ route('website.post', ['slug' => $post->slug]) }}" class="hentry img-2 v-height mb30 gradient" style="background-image: url('{{ $post->image }}');">
+                <a href="{{ route('website.post', ['slug' => $post->slug]) }}"
+                    class="hentry img-2 v-height mb30 gradient" style="background-image: url('{{ $post->image }}');">
                     <span class="post-category text-white bg-success">{{ $post->category->name }}</span>
                     <div class="text text-sm">
                         <h2>{{ $post->title }}</h2>
                         <span class="date">{{ $post->created_at->format('M d, Y') }}</span>
                     </div>
-                </a>    
+                </a>
                 @endforeach
 
                 <div class="two-col d-block d-md-flex justify-content-between">
                     @foreach ($firstFooterPosts2 as $post)
-                    <a href="{{ route('website.post', ['slug' => $post->slug]) }}" class="hentry v-height img-2 gradient" style="background-image: url('{{ $post->image }}');">
+                    <a href="{{ route('website.post', ['slug' => $post->slug]) }}"
+                        class="hentry v-height img-2 gradient" style="background-image: url('{{ $post->image }}');">
                         <span class="post-category text-white bg-primary">{{ $post->category->name }}</span>
                         <div class="text text-sm">
                             <h2>{{ $post->title }}</h2>
                             <span class="date">{{ $post->created_at->format('M d, Y') }}</span>
                         </div>
-                    </a>    
+                    </a>
                     @endforeach
                 </div>
 
@@ -151,7 +154,8 @@
             <div class="col-md-5">
                 <div class="subscribe-1 ">
                     <h2>Subscribe to our newsletter</h2>
-                    <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit nesciunt error illum a
+                    <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit nesciunt error
+                        illum a
                         explicabo, ipsam nostrum.</p>
                     <form action="#" class="d-flex">
                         <input type="text" class="form-control" placeholder="Enter your email address">
@@ -162,5 +166,7 @@
         </div>
     </div>
 </div>
+
+
 
 @endsection
