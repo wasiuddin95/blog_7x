@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 
 use App\Category;
+use App\Setting;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -27,7 +28,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         $categories = Category::take(5)->get();
-
         View::share('categories', $categories);
+        
+        $setting = Setting::first();
+        View::share('setting', $setting);
     }
 }
