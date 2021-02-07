@@ -60,12 +60,16 @@
             <div class="col-md-5">
                 <div class="p-4 mb-3 bg-white">
                     <p class="mb-0 font-weight-bold">Address</p>
-                    <p class="mb-4">203 Fake St. Mountain View, San Francisco, California, USA</p>
+                    <p class="mb-4">{{ $setting->address }}</p>
                     <p class="mb-0 font-weight-bold">Phone</p>
-                    <p class="mb-4"><a href="#">+1 232 3235 324</a></p>
+                    <p class="mb-4"><a href="#">{{ $setting->phone }}</a></p>
                     <p class="mb-0 font-weight-bold">Email Address</p>
-                    <p class="mb-0"><a href="#"><span class="__cf_email__"
-                                data-cfemail="9ae3f5efe8fff7fbf3f6dafef5f7fbf3f4b4f9f5f7">[email&#160;protected]</span></a>
+                    <p class="mb-0">
+                        <a href="#">
+                        {{-- <span class="__cf_email__"
+                        data-cfemail="9ae3f5efe8fff7fbf3f6dafef5f7fbf3f4b4f9f5f7">[email&#160;protected]</span> --}}
+                            {{ $setting->email }}
+                        </a>
                     </p>
                 </div>
             </div>

@@ -88,6 +88,19 @@
                                                        value="{{ $setting->copyright }}" placeholder="copyright">
                                                 </div>
                                             </div>
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label for="phone">Contact Phone Number</label>
+                                                    <input type="text" name="phone" class="form-control" id="phone"
+                                                       value="{{ $setting->phone }}" placeholder="enter phone number">
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label for="address">Contact Location</label>
+                                                    <textarea name="address" id="address" class="form-control" rows="1" placeholder="Enter Contact Address">{{ $setting->address }}</textarea>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="row align-items-center">
