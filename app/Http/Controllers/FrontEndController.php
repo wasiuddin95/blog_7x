@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\Category;
 use App\Tag;
+use App\User;
 
 class FrontEndController extends Controller
 {
@@ -27,7 +28,8 @@ class FrontEndController extends Controller
     
     public function about()
     {
-        return view('website.about');
+        $user = User::first();
+        return view('website.about', compact('user'));
     }
     
     public function category($slug)
