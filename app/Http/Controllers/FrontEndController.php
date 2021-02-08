@@ -7,6 +7,8 @@ use App\Post;
 use App\Category;
 use App\Tag;
 use App\User;
+use App\Contact;
+use Session;
 
 class FrontEndController extends Controller
 {
@@ -70,4 +72,24 @@ class FrontEndController extends Controller
             return redirect('/');
         }
     }
+
+    public function send_message(Request $request)
+    {
+        // dd($request->all());
+
+        $this->validate($request, [
+            'name' => 'required|max:50',
+            'email' => 'required|email|max:60',
+            'subject' => 'required|max:100',
+            'message' => 'required|min:100',
+        ]);
+
+        $contact = Contact::create($request->all());
+
+        Session::flash('message-send', 'Contact message send successfully');
+        return redirect()->back();
+
+    }
+
+
 }
