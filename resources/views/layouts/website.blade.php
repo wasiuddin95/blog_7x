@@ -154,5 +154,7 @@
   gtag('config', 'UA-23581568-13');
 </script>
     
+  @yield('script')
+
   </body>
 </html>
