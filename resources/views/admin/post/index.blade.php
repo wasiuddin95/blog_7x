@@ -92,9 +92,12 @@
                                 @endif
                             </tbody>
                         </table>
-                        {{ $posts->links() }}
+                        
                     </div>
                     <!-- /.card-body -->
+                    <div class="card-footer">
+                        {{ $posts->links() }}
+                    </div>
                 </div>
             </div>
         </div>

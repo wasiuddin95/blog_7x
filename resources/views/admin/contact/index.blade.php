@@ -73,9 +73,11 @@
                                 @endif
                             </tbody>
                         </table>
-                        {{ $messages->links() }}
                     </div>
                     <!-- /.card-body -->
+                    <div class="card-footer">
+                        {{ $messages->links() }}
+                    </div>
                 </div>
             </div>
         </div>

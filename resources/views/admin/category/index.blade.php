@@ -78,9 +78,11 @@
                                 @endif
                             </tbody>
                         </table>
-                        {{ $categories->links() }}
                     </div>
                     <!-- /.card-body -->
+                    <div class="card-footer">
+                        {{ $categories->links() }}
+                    </div>
                 </div>
             </div>
         </div>
