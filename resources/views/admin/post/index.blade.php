@@ -42,6 +42,7 @@
                                     <th>Title</th>
                                     <th>Category</th>
                                     <th>Tags</th>
+                                    <th>Created Date</th>
                                     <th>Author</th>
                                     <th style="width:25%">Actions</th>
                                 </tr>
@@ -54,7 +55,7 @@
                                     <td>{{ $post->id }}</td>
                                     <td>
                                         <div style="max-width: 70px; max-height:70px; overflow:hidden">
-                                            <img src="{{ asset($post->image) }}" class="img-fluid">
+                                            <img src="{{ asset($post->image) }}" class="img-fluid img-rounded">
                                         </div>
                                     </td>
                                     <td>{{ $post->title }}</td>
@@ -64,6 +65,7 @@
                                             <span class="badge badge-primary">{{ $tag->name }}</span>
                                         @endforeach
                                     </td>
+                                    <td>{{ $post->created_at->format('M d, Y') }}</td>
                                     <td>{{ $post->user->name }}</td>
                                     <td class="d-flex">
                                         <a href="{{ route('post.edit', [$post->id]) }}" class="btn btn-sm btn-primary mr-1"> <i class="fas fa-edit"></i> Edit</a>
